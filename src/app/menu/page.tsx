@@ -1,11 +1,10 @@
-import Homepage from "./Home/page";
-
+import MenuCom from "./menu";
 
 // import { LoginProvider } from "@/context/login/login";
 export default function Home() {
   return (
     <div>
-      <Homepage/>
+      <MenuCom/>
     </div>
   );
 }
