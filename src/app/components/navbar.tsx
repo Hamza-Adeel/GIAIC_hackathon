@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { IoSearch } from "react-icons/io5"; // Search Icon
 import { PiHandbagBold } from "react-icons/pi"; // Shopping Bag Icon
+import { PiUserBold } from "react-icons/pi"; // user icon
+
 import Link from "next/link";
 
 export default function Navbar() {
@@ -58,61 +60,74 @@ export default function Navbar() {
           </div>
 
           {/* Shopping Bag Icon */}
-          <div className="ml-8">
-            <PiHandbagBold className="text-white text-2xl hover:text-orange-500 transition" />
+
+          <div className="ml-8 flex gap-[2vw]">
+            <Link href="signin">
+              <div>
+                <PiUserBold className="text-white text-2xl hover:text-orange-500 transition" />
+              </div>
+            </Link>
+            <Link href="/shopping-cart">
+              <div>
+                <PiHandbagBold className="text-white text-2xl hover:text-orange-500 transition" />
+              </div>
+            </Link>
+          </div>
+
+          {/* Hamburger Icon (Small Screens) */}
+          <div
+            className="lg:hidden text-2xl cursor-pointer"
+            onClick={toggleMenu}
+          >
+            {isMenuOpen ? "✕" : "≡"}
           </div>
         </div>
 
-        {/* Hamburger Icon (Small Screens) */}
-        <div className="lg:hidden text-2xl cursor-pointer" onClick={toggleMenu}>
-          {isMenuOpen ? "✕" : "≡"}
-        </div>
-      </div>
+        {/* Collapsible Menu for Small Screens */}
+        <div
+          className={`${
+            isMenuOpen ? "block" : "hidden"
+          } lg:hidden bg-black text-white mt-4 space-y-4 px-6`}
+        >
+          {/* Navigation Links */}
+          <div className="flex flex-col space-y-4">
+            <Link href="/Home" className="hover:text-orange-500 transition">
+              Home
+            </Link>
+            <Link href="/menu" className="hover:text-orange-500 transition">
+              Menu
+            </Link>
+            <Link href="/blog" className="hover:text-orange-500 transition">
+              Blog
+            </Link>
+            <Link href="/pages" className="hover:text-orange-500 transition">
+              Pages
+            </Link>
+            <Link href="/About" className="hover:text-orange-500 transition">
+              About
+            </Link>
+            <Link href="/shop" className="hover:text-orange-500 transition">
+              Shop
+            </Link>
+            <Link href="/contact" className="hover:text-orange-500 transition">
+              Contact
+            </Link>
+          </div>
 
-      {/* Collapsible Menu for Small Screens */}
-      <div
-        className={`${
-          isMenuOpen ? "block" : "hidden"
-        } lg:hidden bg-black text-white mt-4 space-y-4 px-6`}
-      >
-        {/* Navigation Links */}
-        <div className="flex flex-col space-y-4">
-          <Link href="#home" className="hover:text-orange-500 transition">
-            Home
-          </Link>
-          <Link href="#menu" className="hover:text-orange-500 transition">
-            Menu
-          </Link>
-          <Link href="#blog" className="hover:text-orange-500 transition">
-            Blog
-          </Link>
-          <Link href="#pages" className="hover:text-orange-500 transition">
-            Pages
-          </Link>
-          <Link href="#about" className="hover:text-orange-500 transition">
-            About
-          </Link>
-          <Link href="#shop" className="hover:text-orange-500 transition">
-            Shop
-          </Link>
-          <Link href="#contact" className="hover:text-orange-500 transition">
-            Contact
-          </Link>
-        </div>
+          {/* Search Bar */}
+          <div className="flex items-center bg-gray-800 px-3 py-2 rounded-full w-full">
+            <input
+              type="text"
+              placeholder="Search..."
+              className="bg-transparent text-white placeholder-gray-400 focus:outline-none w-full text-sm"
+            />
+            <IoSearch className="text-orange-500 ml-2" />
+          </div>
 
-        {/* Search Bar */}
-        <div className="flex items-center bg-gray-800 px-3 py-2 rounded-full w-full">
-          <input
-            type="text"
-            placeholder="Search..."
-            className="bg-transparent text-white placeholder-gray-400 focus:outline-none w-full text-sm"
-          />
-          <IoSearch className="text-orange-500 ml-2" />
-        </div>
-
-        {/* Shopping Bag Icon */}
-        <div>
-          <PiHandbagBold className="text-white text-2xl hover:text-orange-500 transition" />
+          {/* Shopping Bag Icon */}
+          <div>
+            <PiHandbagBold className="text-white text-2xl hover:text-orange-500 transition" />
+          </div>
         </div>
       </div>
     </nav>

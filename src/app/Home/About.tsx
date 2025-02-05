@@ -4,6 +4,7 @@ import { FaCheck } from "react-icons/fa6";
 import About1 from "@/app/assets/about_us1.png"
 import About2 from "@/app/assets/about_us2.png"
 import About3 from "@/app/assets/about_us3.png"
+import Link from "next/link";
 
 function AboutUs() {
   return (
@@ -34,12 +35,13 @@ function AboutUs() {
               <FaCheck className="mr-2" /> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </li>
           </ul>
-
+          <Link href="/About">
           <div className="flex flex-col md:flex-row items-center md:items-start">
             <button className="bg-[#FF9F0D] text-white w-[100px] h-[30px] md:w-[190px] md:h-[60px] rounded-[40px] mt-[32px] hover:bg-yellow-800">
-              See More
+              Read More
             </button>
           </div>
+          </Link>
         </div>
 
         {/* Image Section */}

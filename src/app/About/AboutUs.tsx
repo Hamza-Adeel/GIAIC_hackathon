@@ -30,7 +30,7 @@ export default function About() {
               Home
             </Link>
             <span className="text-white"> &gt; </span>
-            <Link href="/about" className="text-orange-500">
+            <Link href="/About" className="text-orange-500">
               About
             </Link>
           </div>
